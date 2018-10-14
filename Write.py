@@ -13,6 +13,7 @@ class points(object):
 
 sm_threshold = 30
 lg_threshold = 100
+exceed_threshold = 250
 
 
 
@@ -22,7 +23,7 @@ keyboard = Controller()
 
 cap = cv2.VideoCapture(0)
 
-pts = deque(maxlen=64)
+pts = deque(maxlen=16)
 
 Lower_green = np.array([110, 50, 50])
 Upper_green = np.array([130, 255, 255])
@@ -74,6 +75,8 @@ while True:
             min_Y = min([p.y for p in recentPoints])
             max_Y = max([p.y for p in recentPoints])
 
+            #if max_Y - min_Y > exceed_threshold or max_X - min_X > exceed_threshold:
+            #    recentPoints = deque()
 
             if max_X-min_X <= sm_threshold or max_Y-min_Y<=sm_threshold:
                 # EndPoint as average of recentPoints
