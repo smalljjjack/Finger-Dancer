@@ -1,28 +1,44 @@
-## Hand Movement Tracking [![](https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000)](https://github.com/akshaybahadur21/HandMovementTracking/blob/master/LICENSE.txt)  [![](https://img.shields.io/badge/Akshay-Bahadur-brightgreen.svg?colorB=ff0000)](https://akshaybahadur.com)
-This code helps you to understand and track your hand movement using webcam.
+## Finger Dancer 
 
-### Sourcerer
-[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/0)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/0)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/1)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/1)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/2)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/2)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/3)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/3)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/4)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/4)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/5)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/5)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/6)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/6)[![](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/images/7)](https://sourcerer.io/fame/akshaybahadur21/akshaybahadur21/HandMovementTracking/links/7)
 
-### Code Requirements
-The example code is in Python ([version 2.7](https://www.python.org/download/releases/2.7/) or higher will work). 
+### Library Dependency
+The example code is in Python ([version 3.7)
 You need to install opencv library
-
 
 ### Description
 
-To perform video tracking an algorithm analyzes sequential video frames and outputs the movement of targets between the frames. There are a variety of algorithms, each having strengths and weaknesses. Considering the intended use is important when choosing which algorithm to use. There are two major components of a visual tracking system: target representation and localization, as well as filtering and data association.
+Two parts:
+- First is a OpenCV program to track the color finger wave [Check This](https://github.com/akshaybahadur21/HandMovementTracking)
 
-Video tracking is the process of locating a moving object (or multiple objects) over time using a camera. It has a variety of uses, some of which are: human-computer interaction, security and surveillance, video communication and compression, augmented reality, traffic control, medical imaging and video editing.
-
-
-For more information, [see](http://opencv-python-tutroals.readthedocs.io/en/latest/)
-
-### Working Example
-
-<img src="https://github.com/akshaybahadur21/HandMovementTracking/blob/master/write.gif">
+- Second is a little python keypress simulation to mimic the key board interaction based on the (x, y) position of the tracked objects.
 
 
+### Who Made this amazing Hack?
+WPI Goats! and Ghosts!
+
+### What inspired you to make this?
+- Interest in OpenCV
+- Want to start doing something with python
+- Don't want to uses mouse or keyboard when winter comes
+- Do something to explore human interaction
+
+### How Did you build it ?
+- Search
+- Tweak
+- Design
+- Improve
+
+### What challenges did you face ?
+- Certain color is sensitive to track
+- Background may have a lot of noises
+- Python Thread parallel programming in the first time
+
+### What accomplishments ?
+- Made it
+- Have fun with it
+- Find OpenCV is interesting
+- Find Thread / Concurrency / parallel is interesting
+- Thinking itself is attractive
 
 ### Execution
 To run the code, type `python Write.py`
