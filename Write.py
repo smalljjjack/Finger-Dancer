@@ -11,8 +11,8 @@ class points(object):
         self.x = x
         self.y = y
 
-sm_threshold = 100
-lg_threshold = 200
+sm_threshold = 30
+lg_threshold = 100
 
 
 
@@ -52,14 +52,17 @@ while True:
     cnts, heir = cv2.findContours(
         mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2:]
     center = None
-
-    if len(cnts) > 0:
+    if len(cnts) <= 0:
+        recentPoints = deque()
+    elif len(cnts) > 0:
+        if len(recentPoints) == 1:
+            startPoint = points(x, y)
         c = max(cnts, key=cv2.contourArea)
         ((x, y), radius) = cv2.minEnclosingCircle(c)
         M = cv2.moments(c)
         center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
 
-        # Added code 
+        # Added code
         recentPoints.append(points(x,y))
 
         if len(recentPoints)>16:
@@ -84,7 +87,7 @@ while True:
                     print('right')
                     keyboard.press(Key.right)
                     keyboard.release(Key.right)
-                    startPoint = endPoint
+                    #startPoint = endPoint
                     recentPoints = deque()
 
 
@@ -92,23 +95,23 @@ while True:
                     print('left')
                     keyboard.press(Key.left)
                     keyboard.release(Key.left)
-                    startPoint = endPoint
+                    #startPoint = endPoint
                     recentPoints = deque()
 
 
             else:
-                if startPoint.y - endPoint.y > lg_threshold*0.625 :
+                if startPoint.y - endPoint.y > lg_threshold*0.5 :
                     print('up')
                     keyboard.press(Key.up)
                     keyboard.release(Key.up)
-                    startPoint = endPoint 
-                    recentPoints = deque()                  
-             
-                elif startPoint.y - endPoint.y < -lg_threshold*0.625:
+                    #startPoint = endPoint
+                    recentPoints = deque()
+
+                elif startPoint.y - endPoint.y < -lg_threshold*0.5:
                     print('down')
                     keyboard.press(Key.down)
                     keyboard.release(Key.down)
-                    startPoint = endPoint   
+                    #startPoint = endPoint
                     recentPoints = deque()
 
 
@@ -157,7 +160,7 @@ while True:
             continue
         thick = int(np.sqrt(len(pts) / float(i + 1)) * 2.5)
         cv2.line(img, pts[i - 1], pts[i], (0, 0, 225), thick)
-
+    img = cv2.flip(img, 1)
     cv2.imshow("Frame", img)
     # cv2.imshow("mask",mask)
     # cv2.imshow("res",res)
